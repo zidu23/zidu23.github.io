@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Spring Boot 常用注解 | WLB’ Blog</title><meta name="author" content="WLB"><meta name="copyright" content="WLB"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="常用注解@SpringBootApplication：申明让spring boot自动给程序进行必要的配置，这个配置等同于：@Configuration ，@EnableAutoConfiguration 和 @ComponentScan 三个配置。 @ResponseBody：表示该方法的返回结果"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zidu23.github.io/post/a5db5000.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: WLB","link":"链接: ","source":"来源: WLB’ Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Spring Boot 常用注解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-17 09:07:40'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="/js/visibility_change.js" type="text/javascript"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://spring.io/img/projects/spring-boot.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="WLB’ Blog"><span class="site-name">WLB’ Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring Boot 常用注解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-17T00:26:21.000Z" title="发表于 2023-10-17 08:26:21">2023-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-17T01:07:40.870Z" title="更新于 2023-10-17 09:07:40">2023-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/blog/">blog</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring Boot 常用注解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><p><code>@SpringBootApplication</code>：申明让<code>spring boot</code>自动给程序进行必要的配置，这个配置等同于：<code>@Configuration</code> ，<code>@EnableAutoConfiguration</code> 和 <code>@ComponentScan</code> 三个配置。</p>
+<p><code>@ResponseBody</code>：表示该方法的返回结果直接写入<code>HTTP response body</code>中，一般在异步获取数据时使用，用于构建<code>RESTful</code>的<code>api</code>。在使用<code>@RequestMapping</code>后，返回值通常解析为跳转路径，加上<code>@Responsebody</code>后返回结果不会被解析为跳转路径，而是直接写入<code>HTTP response body</code>中。比如异步获取<code>json</code>数据，加上<code>@Responsebody</code>后，会直接返回<code>json</code>数据。该注解一般会配合<code>@RequestMapping</code>一起使用</p>
+<p><code>@Controller</code>：用于定义控制器类，在<code>spring</code>项目中由控制器负责将用户发来的<code>URL</code>请求转发到对应的服务接口（<code>service</code>层），一般这个注解在类中，通常方法需要配合注解<code>@RequestMapping</code></p>
+<p><code>@RestController</code>：用于标注控制层组件(如<code>struts</code>中的<code>action</code>)，是<code>@ResponseBody</code>和@<code>Controller</code>的合集。</p>
+<p><code>@RequestMapping</code>：提供路由信息，负责<code>URL</code>到<code>Controller</code>中的具体函数的映射</p>
+<p><code>@EnableAutoConfiguration</code>：<code>SpringBoot</code>自动配置（auto-configuration）：尝试根据你添加的<code>jar</code>依赖自动配置<code>Spring</code>应用。例如，如果<code>classpath</code>下存在<code>HSQLDB</code>，并且你没有手动配置任何数据库连接<code>beans</code>，那么我们将自动配置一个内存型（<code>in-memory</code>）数据库。也可以将<code>@EnableAutoConfiguration</code>或者<code>@SpringBootApplication</code>注解添加到一个<code>@Configuration</code>类上来选择自动配置。如果发现应用了你不想要的特定自动配置类，你可以使用<code>@EnableAutoConfiguration</code>注解的排除属性来禁用它们</p>
+<p><code>@ComponentScan</code>：表示将该类自动发现扫描组件。如果扫描到有<code>@Component</code>、<code>@Controller</code>、<code>@Service</code>等这些注解的类，并注册为<code>Bean</code>，可以自动收集所有的<code>Spring</code>组件，包括<code>@Configuration</code>类。当使用<code>@ComponentScan</code>注解搜索<code>beans</code>，结合<code>@Autowired</code>注解导入。如果没有配置的话，<code>Spring Boot</code>会扫描启动类所在包下以及子包下的使用了<code>@Service,@Repository</code>等注解的类。</p>
+<p><code>@Configuration</code>：相当于传统的<code>xml</code>配置文件，如果有些第三方库需要用到<code>xml</code>文件，建议仍然通过<code>@Configuration</code>类作为项目的配置主类——可以使用<code>@ImportResource</code>注解加载<code>xml</code>配置文件。</p>
+<p><code>@Import</code>：用来导入其他配置类。</p>
+<p><code>@ImportResource</code>：用来加载<code>xml</code>配置文件</p>
+<p><code>@Service</code>：一般用于修饰<code>service</code>层的组件</p>
+<p><code>@Repository</code>：使用<code>@Repository</code>注解可以确保<code>DAO</code>或者<code>repositories</code>提供异常转译，这个注解修饰的<code>DAO</code>或者<code>repositories</code>类会被<code>ComponetScan</code>发现并配置，同时也不需要为它们提供<code>XML</code>配置项</p>
+<p><code>@Value</code>：注入<code>Spring boot application.properties</code>配置的属性的值。</p>
+<p><code>@Inject</code>：等价于默认的<code>@Autowired</code>，只是没有<code>required</code>属性；</p>
+<p><code>@Component</code>：泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p>
+<p><code>@Bean</code>:用<code>@Bean</code>标注方法等价于<code>XML</code>中配置的<code>bean</code>，放在方法的上面，而不是类，意思是产生一个<code>bean</code>,并交给<code>spring</code>管理。</p>
+<p><code>@AutoWired</code>：自动导入依赖的<code>bean</code>。<code>byType</code>方式。把配置好的<code>Bean</code>拿来用，完成属性、方法的组装，它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。当加上（<code>required=false</code>）时，就算找不到bean也不报错。</p>
+<p><code>@Qualifier</code>：当有多个同一类型的<code>Bean</code>时，可以用<code>@Qualifier(“name”)</code>来指定。与<code>@Autowired</code>配合使用。<code>@Qualifier</code>限定描述符除了能根据名字进行注入，但能进行更细粒度的控制如何选择候选者</p>
+<p><code>@Resource(name=”name”,type=”type”)</code>：没有括号内内容的话，默认<code>byName</code>。与<code>@Autowired</code>干类似的事。</p>
+<p><code>@PathVariable</code>：获取路径参数。</p>
+<p><code>@JsonBackReference</code>：解决嵌套外链问题。</p>
+<p><code>@RepositoryRestResourcepublic</code>：配合<code>spring-boot-starter-data-rest</code>使用</p>
+<h2 id="异常注解"><a href="#异常注解" class="headerlink" title="异常注解"></a>异常注解</h2><p><code>@ControllerAdvice</code>：包含@Component。可以被扫描到。统一处理异常。</p>
+<p><code>@ExceptionHandler（Exception.class）</code>：用在方法上面表示遇到这个异常就执行以下方法。</p>
+<h2 id="事务注解"><a href="#事务注解" class="headerlink" title="事务注解"></a>事务注解</h2><p><code>@Transactional</code></p>
+<p>在Spring中，事务有两种实现，分别是编程式事务和声明式事务。</p>
+<p>编程式事务：编程式事务使用TransationTemplate或者直接使用底层的PlatformTransactionManager。对于编程式事务，spring推荐使用TransationTemplate。</p>
+<p>声明式事务：建立在AOP基础上，其本质是对方法前后进行拦截，然后再目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务，通过@Transactional就可以进行事务操作，更快捷而且简单。推荐使用。</p>
+<h2 id="JPA注解"><a href="#JPA注解" class="headerlink" title="JPA注解"></a>JPA注解</h2><p><code>@Entity ，@Table(name=&quot;&quot;)</code>:表明这是一个实体类，一般用于jpa，这两个注解一块使用，但是如果表名和实体类名相同的话，@Table可以省略。</p>
+<p><code>@MappedSuperClass</code>:基于代码复用和模型分离的思想，在项目开发中使用jpa的@MappedSuperClass注解，将实体类的多个属性分别封装到不同的非实体类中。例如，数据库表中都需要id来表示编号，id是这些映射实体类的通用属性，交给jpa统一生产主键id编号，那么使用一个父类来封装这些通用属性，并用@MappedSuperClass标识。<br><code>@NoRepositoryBean</code>:一般用做父类的repository，有这个注解，spring不会去实例化该repository。</p>
+<p><code>@Column</code>:如果字段名和列名相同，则可以省略。</p>
+<p><code>@Id</code>:表示该属性为主键。</p>
+<p><code>@Transient</code>:表示该属性并非一个到数据库表的字段的映射，ORM框架将忽略该属性。</p>
+<p>如果一个属性并非数据库表的字段映射，就务必将其标注为@Transient，否则，ORM框架默认将其注解为@Basic。</p>
+<p><code>@Basic</code>:@Basic 是实体类与数据库字段映射时最简单的类型。</p>
+<p>类型支持Java基本类型（byte、short、int、long、float、double、char、boolean），包装类，枚举类，以及实现了serializable接口的类型。</p>
+<h2 id="Cloud相关"><a href="#Cloud相关" class="headerlink" title="Cloud相关"></a>Cloud相关</h2><p><code>@EnableEurekaServer</code>:用在springboot启动类上，表示这是一个eureka服务注册中心；</p>
+<p><code>@EnableDiscoveryClient</code>用在springboot启动类上，表示这是一个服务，可以被注册中心找到；</p>
+<p><code>@LoadBalanced</code>:开启负载均衡能力；</p>
+<p><code>@EnableCircuitBreaker</code>:用在启动类上，开启断路器功能；</p>
+<p><code>@HystrixCommand(fallbackMethod=”backMethod”)</code>:用在方法上，fallbackMethod指定断路回调方法；</p>
+<p><code>@EnableConfigServer</code>:用在启动类上，表示这是一个配置中心，开启Config Server；</p>
+<p><code>@EnableZuulProxy</code>:开启zuul路由，用在启动类上；</p>
+<p><code>@SpringCloudApplication</code>: <code>@SpringBootApplication</code>,<code>@EnableDiscovertyClient</code> , <code>@EnableCircuitBreaker</code>分别是SpringBoot注解、注册服务中心Eureka注解、断路器注解。对于SpringCloud来说，这是每一微服务必须应有的三个注解，所以才推出了@SpringCloudApplication这一注解集合。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zidu23.github.io">WLB</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zidu23.github.io/post/a5db5000.html">https://zidu23.github.io/post/a5db5000.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zidu23.github.io" target="_blank">WLB’ Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/spring-boot/">spring boot</a><a class="post-meta__tags" href="/tags/%E6%B3%A8%E8%A7%A3/">注解</a></div><div class="post_share"><div class="social-share" data-image="https://spring.io/img/projects/spring-boot.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/ff05b5bf.html" title="第一篇博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/Rebuild_hexo_when_reinstall_the_system.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第一篇博客</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">WLB</div><div class="author-info__description">嘿，我是WLB~ 欢迎访问我的博客！</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zidu23" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2223953353@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">常用注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">异常注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E6%B3%A8%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">事务注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JPA%E6%B3%A8%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">JPA注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cloud%E7%9B%B8%E5%85%B3"><span class="toc-number">5.</span> <span class="toc-text">Cloud相关</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/a5db5000.html" title="Spring Boot 常用注解"><img src="https://spring.io/img/projects/spring-boot.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring Boot 常用注解"/></a><div class="content"><a class="title" href="/post/a5db5000.html" title="Spring Boot 常用注解">Spring Boot 常用注解</a><time datetime="2023-10-17T00:26:21.000Z" title="发表于 2023-10-17 08:26:21">2023-10-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/ff05b5bf.html" title="第一篇博客"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/Rebuild_hexo_when_reinstall_the_system.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一篇博客"/></a><div class="content"><a class="title" href="/post/ff05b5bf.html" title="第一篇博客">第一篇博客</a><time datetime="2023-10-16T09:56:06.000Z" title="发表于 2023-10-16 17:56:06">2023-10-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/4a17b156.html" title="Hello World">Hello World</a><time datetime="2023-10-16T08:31:58.914Z" title="发表于 2023-10-16 16:31:58">2023-10-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://spring.io/img/projects/spring-boot.svg')"><div id="footer-wrap"><div class="copyright">&copy;2023 By WLB</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">(｡･∀･)ﾉﾞ嗨，欢迎访问我的<a href="https://zidu23.github.io/">博客</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
