@@ -37,4 +37,8 @@
     background: linear-gradient(to bottom right,#348AC7, #7474BF);
     border-radius:8px
   }
+  /* 隐藏滚动条 */
+#zhihu-container::-webkit-scrollbar{
+  display: none;
+}
   

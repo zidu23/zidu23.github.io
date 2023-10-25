@@ -1,4 +1,4 @@
-let oSpan = document.getElementsByTagName("timing")[0];
+let oSpan = document.getElementsByClassName("timing");
 let localhostTime = new Date();//获取页面打开的时间
 function tow(n) {
     return n >= 0 && n < 10 ? '0' + n : '' + n;
