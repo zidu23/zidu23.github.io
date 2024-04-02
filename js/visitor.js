@@ -32,7 +32,7 @@ fetch('https://api.vvhan.com/api/visitor.info').then(data=>data.json()).then(dat
     html += '访问IP：' + '<span class="visitor_ip">' + data.ip + '</span>' + '</br>'
     html += '操作系统：' + '<span class="visitor_ip">' + data.system + '</span>' + '</br>'
     html += '浏览器：' + '<span class="visitor_ip">' + data.browser + '</span>' + '</br>'
-    html +=  '<span class="visitor_ip">' + '今天 ' + data.tq + '，最高温：' + data.high + '，最低温：' + data.low + '，'+ data.fl + '，' + data.tip  + '</span>' + '</br>'
+    html +=  ' ' + '<span class="visitor_ip">' + '今天 ' + data.tq + '，最高温：' + data.high + '，最低温：' + data.low + '，'+ data.fl + '，' + data.tip  + '</span>' + '</br>'
     html += '</div>'
     document.getElementById('visitorContent').innerHTML = html
 }).catch(function(error) {
