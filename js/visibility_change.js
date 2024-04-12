@@ -13,3 +13,4 @@ document.addEventListener('visibilitychange', function () {
         }, 2000);
     }
 });
+console.info(`%c WLB %c ${new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDay()} %c https://zidu23.github.io/`,"color:#fff;background:#5f5f5f","color:#fff;background:#70c6be","")
