@@ -1,0 +1,16 @@
+/* css文件统一引用 */
+
+/* mouse.css */
+@import url('mouse.css');
+
+/* weibo.css */
+@import url('weibo.css');
+
+/* bilibili.css */
+@import url('bilibili.css');
+
+/* touming.css */
+@import url('touming.css');
+
+/* yu.css */
+@import url('yu.css');
